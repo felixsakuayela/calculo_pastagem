@@ -1,0 +1,113 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cálculo de Pastagem</title>
+  <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+  <!-- <script src="index.js"></script> -->
+</head>
+
+<body>
+  <a href="{% url 'index' %}" id="calcular-btn" target="_parent">Voltar</a>
+  <div class="container">
+    <h1>Fazer Calculo</h1>
+    <form method="post" action="{% url 'calculo' %}" id="calculopastagem-form"  action="/calculo/" target="_blank">
+      {% csrf_token %}
+      <table>
+        <tr>
+          <th>Parâmetro</th>
+          <th>Área Tratada</th>
+          <th>Testemunha</th>
+        </tr>
+        <tr>
+          <td>Peso da Amostra m² em (Kg)</td>
+          <td><input type="number" name="peso_amostra_area_tratada" required value="3.20"></td>
+          <td><input type="number" name="peso_amostra_testemunha" required value="1.95"></td>
+        </tr>
+        <tr>
+          <td>Perdas 50%</td>
+          <td><input type="number" name="perdas_area_tratada" required value="0.7"></td>
+          <td><input type="number" name="perdas_testemunha" required value="0.7"></td>
+        </tr>
+        <tr>
+          <td>Eficiência de Pastejo 50%</td>
+          <td><input type="number" name="eficiencia_pastejo_area_tratada" required value="0.6"></td>
+          <td><input type="number" name="eficiencia_pastejo_testemunha" required value="0.6"></td>
+        </tr>
+        <tr>
+          <td>Matéria Seca 25%</td>
+          <td><input type="number" name="materia_seca_area_tratada" required value="0.25"></td>
+          <td><input type="number" name="materia_seca_testemunha" required value="0.25"></td>
+        </tr>
+        <tr>
+          <td>Período de ocupação</td>
+          <td colspan="2"><input type="number" id="periodo_ocupacao" name="periodo_ocupacao" required
+              value="10" onchange="updatePeriodo()"></td>
+        </tr>
+        <tr>
+          <td>Número de piquetes</td>
+          <td colspan="2"><input type="number" id="numero_piquetes" name="numero_piquetes" required
+              value="4" onchange="updatePeriodo()" onchange="validateNumeroPiquetes()"></td>
+        </tr>
+        <tr>
+          <td>Peso Vivo</td>
+          <td colspan="2"><input type="number" name="peso_vivo" required value="450"></td>
+        </tr>
+        <tr>
+          <td>Consumo Animal 2,0% PV</td>
+          <td colspan="2"><input type="number" name="consumo_animal" required value="0.02">
+          </td>
+        </tr>
+        <tr>
+          <td>ha (m²)</td>
+          <td><input type="number" name="ha_area_tratada" required value="10000"></td>
+          <td><input type="number" name="ha_testemunha" required value="10000"></td>
+        </tr>
+        <tr>
+          <td>GMD</td>
+          <td>
+            <select name="gmd_area_tratada" required>
+              <option value="0.4">0.4</option>
+              <option value="0.5" selected>0.5</option>
+              <option value="0.6">0.6</option>
+              <option value="0.7">0.7</option>
+              <option value="0.8">0.8</option>
+            </select>
+          </td>
+          <td>
+            <select name="gmd_testemunha" required>
+              <option value="0.4">0.4</option>
+              <option value="0.5" selected>0.5</option>
+              <option value="0.6">0.6</option>
+              <option value="0.7">0.7</option>
+              <option value="0.8">0.8</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>@ ha /período das Águas</td>
+          <td><input type="number" name="ha_periodo_aguas_area_tratada" required value="28.0"></td>
+          <td><input type="number" name="ha_periodo_aguas_testemunha" required value="17.1"></td>
+        </tr>
+        <tr>
+          <td>R$ @</td>
+          <td colspan="2"><input type="number" name="custo" required value="220"></td>
+        </tr>
+        <tr>
+          <td>Período das águas (Dias)</td>
+          <td colspan="2"><input type="number" name="periodo_aguas" required value="180"></td>
+        </tr>
+      </table>
+      <button type="submit">Calcular</button>
+    </form>
+  </div>
+  <script type="text/javascript" src="{% static 'js/calcularhaperiodoaguasareatratada.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/calcularhaperiodoguastestemunha.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/updateperiodo.js' %}"></script>
+</body>
+
+</html>

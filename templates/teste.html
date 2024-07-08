@@ -1,0 +1,54 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado do Cálculo</title>
+  <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+  
+</head>
+<body>
+  <div class="container">
+    <h1>Resultado do Cálculo</h1>
+    <table>
+      <tr>
+        <th>Cálculo Capacidade de Suporte</th>
+      </tr>
+      <tr>
+        <td>Cap. Sup. Área Tratada</td>
+        <td>3360</td>
+        <td>90</td>
+        <td>9,33 Cab./ha</td>
+        <td rowspan="2">39%</td>
+      </tr>
+      <tr>
+        <td>Cap. Sup. Testemunha</td>
+        <td>2048</td>
+        <td>90</td>
+        <td>5,69 Cab./ha</td>
+      </tr>
+    </table>
+    <hr>
+    <table>
+      <tr>
+        <th>Cálculo de ganho por ha</th>
+      </tr>
+      <tr>
+        <td>Ganho 180 dias Área Tratada</td>
+        <td>R$ 6.160,00</td>
+        <td rowspan="3">39%</td>
+      </tr>
+      <tr>
+        <td>Ganho 180 dias Testemunha</td>
+        <td>R$ 3.753,75</td>
+      </tr>
+      <tr>
+        <td>Diferença</td>
+        <td>R$ 2.406,25</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
