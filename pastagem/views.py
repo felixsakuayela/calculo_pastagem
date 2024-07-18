@@ -83,6 +83,6 @@ def calculo(request):
             'diferenca_ganho': diferenca_ganho
         }
 
-        return render(request, 'resultado.html', context)
+        return render(request, 'calculo.html', context)
 
     return render(request, 'calculo.html')
