@@ -15,6 +15,7 @@
       font-family: Arial, sans-serif;
       background-image: url('static/imagens/sunset-6303992_1920.jpg');
       background-position: center;
+      background-size: cover;
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -28,56 +29,67 @@
       color: white;
       margin-bottom: 20px;
     }
-    hr{
+    hr {
       border-radius: 0%;
       color: blue;
       padding: 0px;
     }
     a#calcular-btn {
       display: inline-block;
-      padding: 5px 10px;
-      background-color: rgba(2, 8, 15, 0.8); /* Cor de fundo com opacidade */
+      padding: 10px 20px;
+      background-color: rgba(2, 8, 15, 0.8);
       color: #fff;
       text-decoration: none;
       border: none;
       border-radius: 2px;
-      font-size: 14px;
+      font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s ease, opacity 0.3s ease; /* Adiciona transição de opacidade */
+      transition: background-color 0.3s ease, opacity 0.3s ease;
     }
-
     a#calcular-btn:hover {
       background-color: #2b65a3;
-      opacity: 1; /* Define a opacidade completa quando o mouse está sobre o botão */
+      opacity: 1;
     }
-
     footer {
       position: absolute;
       bottom: 20px;
-      right: 20px; /* Posiciona no canto inferior direito */
+      right: 20px;
     }
-
     footer img {
-      width: 150px; /* Ajuste conforme necessário */
-      opacity: 0.8; /* Define a opacidade da imagem */
+      width: 150px;
+      opacity: 0.8;
+      transition: width 0.3s ease;
     }
 
-</style>
-
+    /* Media query for smaller screens */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      a#calcular-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+      footer {
+        bottom: 10px;
+        right: 10px;
+      }
+      footer img {
+        width: 100px;
+      }
+    }
+  </style>
 </head>
 <body>
- 
   <div>
-    <!-- <a href="index.js"></a> -->
-    <h1> Bem-vindo <hr> Ao Cálculo de Pastagem</h1>
-      
-    <a href="{% url 'calculo' %}" id="calcular-btn" target="_blank">Faça o cálculo de pastagem Angeloooooo</a>
-    
+    <h1>Bem-vindo <hr> Ao Cálculo de Pastagem</h1>
+    <a href="{% url 'calculo' %}" id="calcular-btn" target="_blank">Faça o cálculo de pastagem</a>
   </div>
-  
   <footer>
     <img src="{% static 'imagens/9dd23b2e-e6bf-48f8-b53b-2e64aa7ec69e.jpg' %}" alt="Logo da Empresa">
   </footer>
-  
 </body>
 </html>
