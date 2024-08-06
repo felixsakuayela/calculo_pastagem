@@ -14,7 +14,7 @@
 <body>
   <a href="{% url 'index' %}" id="calcular-btn" target="_parent">Voltar</a>
   <div class="container">
-    <h1>Fazer Calculo</h1>
+    <h1>Fazer Calculo :::</h1>
     <form method="post" action="{% url 'calculo' %}" id="calculopastagem-form"  action="/calculo/">
       {% csrf_token %}
       <table>
@@ -90,8 +90,8 @@
         </tr>
         <tr>
           <td>@ ha /período das Águas</td>
-          <td><input type="number" name="ha_periodo_aguas_area_tratada" required value="28.0"></td>
-          <td><input type="number" name="ha_periodo_aguas_testemunha" required value="17.1"></td>
+          <td><input type="number" name="ha_periodo_aguas_area_tratada" value="28.0"  step="0.1"></td>
+          <td><input type="number" name="ha_periodo_aguas_testemunha" value="17.1"  step="0.1"></td>
         </tr>
         <tr>
           <td>R$ @</td>
