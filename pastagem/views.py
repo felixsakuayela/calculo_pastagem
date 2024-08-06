@@ -56,7 +56,7 @@ def calculo(request):
         cab_ha_testemunha = ((cap_sup_testemunha_1 / cap_sup_testemunha_2) /
                                 numero_piquetes)
 
-        cab_ha_porcentagem = 1 - (cab_ha_testemunha / cab_ha_area_tratada)
+        cab_ha_porcentagem = 1 - (cab_ha_testemunha / cab_ha_area_tratada) * 100
 
         ganho_180_dias_area_tratada_valor = (ha_periodo_aguas_area_tratada *
                                                 custo)
@@ -66,7 +66,7 @@ def calculo(request):
 
         ganho_por_ha_porcentagem = ganho_180_dias_area_tratada_valor - ganho_180_dias_testemunha_valor
 
-        diferenca_ganho = ganho_180_dias_testemunha_valor - ganho_180_dias_area_tratada_valor
+        diferenca_ganho = ganho_180_dias_area_tratada_valor - ganho_180_dias_testemunha_valor
 
         # Passando os resultados calculados para o template
         context = {
