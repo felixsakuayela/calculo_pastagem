@@ -7,3 +7,11 @@ calcularBtn.addEventListener("click", function() {
   window.location.href = "resultado.html";
 });
 
+document.getElementById('calcularBtn').addEventListener('click', function() {
+  // Exibe o container de resultados
+  var resultadoContainer = document.getElementById('resultadoContainer');
+  resultadoContainer.classList.remove('hidden');
+  resultadoContainer.scrollIntoView({ behavior: 'smooth' });
+});
+
+
