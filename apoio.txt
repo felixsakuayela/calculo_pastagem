@@ -1,0 +1,27 @@
+APÓS ABRIR O PROJETO - calculo_pastagem-1  
+
+# abrir o terminal - selecionar o terminal cmd (command prompt)
+ctrl+shift+'
+
+#ativar a máquina virtual
+..\..\env\Scripts\Activate
+
+#rodar o aplicativo
+python manage.py runserver
+
+#acessar o app
+http://127.0.0.1:8000/
+
+
+#enviar minhas mudanças no repositório
+git add . (disponibilizar as alerações para o envio no repositório)
+git add templates/index.html
+git status #(verifica qual branch está sendo usada)
+git chekout angelo #(opcinal - muda para que a a brach usada seja "angelo")
+git commit -m "atualização no botão calcular"
+git push origin angelo #(enviar minhas alterações como branch "angelo")
+
+
+#pegar novas atualizações do repositório
+git pull origin main #(pega as branch "main" a branch principal)
+git merge main #(coloca as atualizações no meu repositório local)
