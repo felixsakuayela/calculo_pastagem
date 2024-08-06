@@ -1,0 +1,55 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado do Cálculo</title>
+  <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+  
+</head>
+<body>
+  <a href="{% url 'calculo' %}" id="calcular-btn" target="_parent">Voltar</a>
+  <div class="container">
+    <h1>Resultado do Cálculo</h1>
+    <table>
+      <tr>
+        <th colspan="5">Cálculo Capacidade de Suporte</th>
+      </tr>
+      <tr>
+        <td>Cap. Sup. Área Tratada</td>
+        <td>{{ cap_sup_area_tratada_1 }}</td>
+        <td>{{ cap_sup_area_tratada_2 }}</td>
+        <td>{{ cab_ha_area_tratada }}</td>
+        <td rowspan="2">{{ cab_ha_porcentagem }}</td>
+      </tr>
+      <tr>
+        <td>Cap. Sup. Testemunha</td>
+        <td>{{ cap_sup_testemunha_1 }}</td>
+        <td>{{ cap_sup_testemunha_2 }}</td>
+        <td>{{ cab_ha_testemunha }}</td>
+      </tr>
+    </table>
+    <hr>
+    <table>
+      <tr>
+        <th colspan="3">Cálculo de ganho por ha</th>
+      </tr>
+      <tr>
+        <td>Ganho 180 dias Área Tratada</td>
+        <td>{{ ganho_180_dias_area_tratada_valor }}</td>
+        <td rowspan="3">{{ ganho_por_ha_porcentagem }}</td>
+      </tr>
+      <tr>
+        <td>Ganho 180 dias Testemunha</td>
+        <td>{{ ganho_180_dias_testemunha_valor }}</td>
+      </tr>
+      <tr>
+        <td>Diferença</td>
+        <td>{{ diferenca_ganho }}</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
