@@ -99,3 +99,30 @@ body {
   .hidden {
     display: none;
 }
+
+#save-pdf {
+  background-color: #4CAF50; /* Cor de fundo */
+  color: white;              /* Cor do texto */
+  padding: 5px 10px;         /* Espaçamento interno reduzido */
+  border: none;              /* Remover borda */
+  border-radius: 3px;        /* Bordas levemente arredondadas */
+  font-size: 14px;           /* Tamanho da fonte reduzido */
+  font-weight: bold;         /* Texto em negrito */
+  cursor: pointer;           /* Cursor de mão ao passar o mouse */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  position: fixed;           /* Posição fixa na tela */
+  bottom: 10px;              /* Distância da borda inferior */
+  left: 10px;                /* Distância da borda esquerda */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+}
+
+#save-pdf:hover {
+  background-color: #45a049; /* Cor de fundo ao passar o mouse */
+  transform: translateY(-2px); /* Elevação suave ao passar o mouse */
+}
+
+#save-pdf:active {
+  background-color: #3e8e41; /* Cor de fundo ao clicar */
+  transform: translateY(1px); /* Movimento ao clicar */
+}
+

@@ -8,10 +8,178 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cálculo de Pastagem</title>
   <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+  <link rel="stylesheet" href="/static/css/estilo.css">
   <!-- <script src="index.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 </head>
+<style>
+  * { box-sizing: border-box; }
+html { font-size: 16px; }
 
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/imagens/pexels-hikerwise-20446156.jpg');
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  form {
+    display: grid;
+    grid-gap: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="number"],
+  input[type="text"] {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center; /* Centraliza o conteúdo na célula */
+  }
+  th {
+    background-color: #f2f2f2;
+  }  
+  @media (max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+  
+    .container {
+      margin: 20px auto;
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 1.5em;
+    }
+  
+    input[type="number"],
+    input[type="text"] {
+      padding: 6px;
+    }
+  
+    button[type="submit"] {
+      padding: 8px;
+    }
+  
+    th, td {
+      padding: 6px;
+      font-size: 0.9em;
+    }
+  }
+
+  .hidden {
+    display: none;
+}
+  #save-pdf {
+    background-color: #4CAF50; 
+    color: white;              
+    padding: 5px 10px;         
+    border: none;             
+    border-radius: 3px;        
+    font-size: 14px;          
+    font-weight: bold;         
+    cursor: pointer;         
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;           
+    bottom: 10px;              
+    right: 10px;               
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+#save-pdf:hover {
+    background-color: #45a049; 
+    transform: translateY(-2px); 
+}
+
+#save-pdf:active {
+    background-color: #3e8e41; 
+    transform: translateY(1px); 
+}
+
+
+@media (max-width: 600px) {
+    #save-pdf {
+        padding: 5px 10px;   
+        font-size: 12px;      
+        bottom: 10px;        
+        right: 10px;         
+        border-radius: 5px;   
+    }
+}
+#calcular-btn {
+    display: inline-block;         /* Torna o link semelhante a um botão */
+    background-color: #007BFF;     /* Cor de fundo azul */
+    color: white;                  /* Cor do texto branco */
+    text-decoration: none;         /* Remove o sublinhado do link */
+    padding: 6px 12px;             /* Espaçamento interno para criar um botão pequeno */
+    border-radius: 4px;            /* Bordas arredondadas */
+    font-size: 14px;               /* Tamanho da fonte pequeno */
+    font-weight: 500;              /* Negrito moderado */
+    cursor: pointer;               /* Cursor de mão ao passar o mouse */
+    transition: background-color 0.2s ease; /* Transição suave na cor de fundo */
+}
+
+#calcular-btn:hover {
+    background-color: #0056b3;     /* Cor de fundo ao passar o mouse */
+}
+
+#calcular-btn:active {
+    background-color: #004494;     /* Cor de fundo ao clicar */
+}
+@media (max-width: 600px) {
+     #calcular-btn {
+      padding: 4px 8px;
+      font-size: 10px;
+      bottom: 8px;
+      right: 8px;
+      border-radius: 5px;
+     }
+  
+}
+</style>
 <body>
   <a href="{% url 'index' %}" id="calcular-btn" target="_parent">Voltar</a>
   <div class="container">
@@ -146,9 +314,9 @@
       </tr>
     </table>
   </div>
-  <div class="container">
+
     <button id="save-pdf">Salvar como PDF</button>
-    </div>
+  
 
   <script type="text/javascript" src="{% static 'js/calcularhaperiodoaguasareatratada.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/calcularhaperiodoguastestemunha.js' %}"></script>
