@@ -25,3 +25,6 @@ git push origin angelo #(enviar minhas alterações como branch "angelo")
 #pegar novas atualizações do repositório
 git pull origin main #(pega as branch "main" a branch principal)
 git merge main #(coloca as atualizações no meu repositório local)
+
+
+git remote add origin https://github.com/felixsakuayela/calculo_pastagem.git
